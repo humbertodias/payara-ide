@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  ide:
+    build:
+      context: .
+    ports:
+      - 9090:9090
+      - 8080:8080
+      - 8443:8443
+      - 5005:5005
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - PASSWORD=password #optional
+      - SUDO_PASSWORD=password #optional
+#      - PROXY_DOMAIN=code-server.my.domain #optional
+    user: "1000:1000"
+    restart: unless-stopped
+    working_dir: /opt/projects
+    volumes:
+      - ./projects:/opt/projects
+    

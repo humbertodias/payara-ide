@@ -1,0 +1,6 @@
+{
+    "maven.executable.path": "/home/coder/.sdkman/candidates/maven/current/bin/mvn",
+    "java.home": "/home/coder/.sdkman/candidates/java/current",
+    "gradle.home": "/home/coder/.sdkman/candidates/gradle/current",
+    "java.semanticHighlighting.enabled": true
+}
