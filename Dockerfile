@@ -12,7 +12,7 @@ RUN chown -R coder:coder /opt \
 USER coder
 
 # Payara Server
-ENV PAYARA_VERSION 5.2020.3
+ENV PAYARA_VERSION 5.2020.5
 ENV PAYARA_HOME /opt/payara-server
 RUN cd /opt \
     && curl -L https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/${PAYARA_VERSION}/payara-${PAYARA_VERSION}.zip -o payara-server.zip \
