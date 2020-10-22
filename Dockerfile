@@ -27,6 +27,7 @@ RUN cd /opt \
     && curl -L https://github.com/payara/ecosystem-vscode-plugin/releases/download/${VSCODE_PAYARA_VERSION}/payara-vscode-${VSCODE_PAYARA_VERSION}.vsix -o payara-vscode-${VSCODE_PAYARA_VERSION}.vsix \
     && code-server --install-extension payara-vscode-${VSCODE_PAYARA_VERSION}.vsix \
     && rm payara-vscode-${VSCODE_PAYARA_VERSION}.vsix
+    
 # Putting debug mode in background
 RUN sed -i 's/suspend=y/suspend=n/g' ~/.local/share/code-server/extensions/payara.payara-vscode-${VSCODE_PAYARA_VERSION}/out/main/fish/payara/project/Gradle.js \
  && sed -i 's/suspend=y/suspend=n/g' ~/.local/share/code-server/extensions/payara.payara-vscode-${VSCODE_PAYARA_VERSION}/out/main/fish/payara/project/Maven.js
@@ -40,11 +41,13 @@ RUN echo "alias ll='ls -lha --color'" >> $HOME/.bash_aliases \
 
 # SDKMAN 
 RUN curl -s "https://get.sdkman.io" | bash
-ENV GRADLE_VERSION  6.6
+ENV GRADLE_VERSION 6.7
 ENV MAVEN_VERSION 3.6.3
 ENV JAVA_VERSION 8.0.265.hs-adpt
 #ENV JAVA_VERSION 14.0.2.hs-adpt
-ENV SDKMAN_DIR /home/coder/.sdkman
+ENV HOME /home/coder
+
+ENV SDKMAN_DIR $HOME/.sdkman
 RUN bash -c "source $SDKMAN_DIR/bin/sdkman-init.sh && \
     yes | sdk install gradle $GRADLE_VERSION && \
     yes | sdk install maven $MAVEN_VERSION && \
@@ -63,7 +66,7 @@ RUN sudo ln -s ${JAVA_HOME}/bin/java /usr/bin/java \
  && sudo ln -s ${MAVEN_HOME}/bin/java /usr/bin/mvn \
  && sudo ln -s ${GRADLE_HOME}/bin/java /usr/bin/gradle
 
-ADD settings.json /home/coder/.local/share/code-server/User/settings.json
+ADD settings.json $HOME/.local/share/code-server/User/settings.json
 
 EXPOSE 5005 8080 8443 9090
 CMD ["--bind-addr", "0.0.0.0:9090"]

@@ -1,11 +1,9 @@
 
 Online Visual code  IDE configured with payara tools extension, ready for development.
 
-## Micro Template
+## Micro Project
 
-    echo Y | \
-    mvn archetype:generate -DarchetypeGroupId=fish.payara.maven.archetypes -DarchetypeArtifactId=payara-micro-maven-archetype -DarchetypeVersion=1.0.1 -DgroupId=fish.payara.micro -DartifactId=micro-sample -Dversion=1.0-SNAPSHOT -Dpackage=fish.payara.micro.sample -Darchetype.interactive=false \
-    -DoutputDirectory=./projects
+    make template
 
 ## Run
 
@@ -14,19 +12,19 @@ Online Visual code  IDE configured with payara tools extension, ready for develo
 For MacOS
 
 Adding local directory as a possible volume path
+
 ```
-cp ~/Library/Group\ Containers/group.com.docker/settings.json tmp.json
-EXP=".filesharingDirectories |= . + [\"$(PWD)\"]"
-jq $EXP tmp.json > modified.json
-cp modified.json ~/Library/Group\ Containers/group.com.docker/settings.json
-rm -f tmp.json modified.json
+SETTINGS=~/Library/Group\ Containers/group.com.docker/settings.json
+ADDING_PWD_DIRECTORY=".filesharingDirectories |= . + [\"$(PWD)\"]"
+jq $ADDING_PWD_DIRECTORY $SETTINGS > /tmp/modified.json
+cp /tmp/modified.json $SETTINGS
 ```
 
 Then
 
 http://0.0.0.0:9090/?folder=/opt/projects/micro-sample
 
-Password is password
+Password is *password*
 
 ![](doc/code-server-password.png)
 
@@ -42,7 +40,8 @@ Password is password
 
 ## Ref
 
-* https://hub.docker.com/r/linuxserver/code-server
-* https://blog.payara.fish/payara-micro-vscode-tooling
+* [code-server](https://hub.docker.com/r/linuxserver/code-server)
+
+* [payara-micro-vscode-tooling](https://blog.payara.fish/payara-micro-vscode-tooling)
 
 * [fixing-the-var-folders-error-in-docker-for-mac](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d)
