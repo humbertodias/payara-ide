@@ -27,7 +27,10 @@ Then
 http://0.0.0.0:9090/?folder=/opt/projects/micro-sample
 
 Password is password
+
 ![](doc/code-server-password.png)
+
+![](doc/maven-package.png)
 
 ![](doc/micro-build-debug.png)
 
@@ -41,3 +44,5 @@ Password is password
 
 * https://hub.docker.com/r/linuxserver/code-server
 * https://blog.payara.fish/payara-micro-vscode-tooling
+
+* [fixing-the-var-folders-error-in-docker-for-mac](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d)
