@@ -44,7 +44,6 @@ RUN curl -s "https://get.sdkman.io" | bash
 ENV GRADLE_VERSION 8.3
 ENV MAVEN_VERSION 3.9.4
 ENV JAVA_VERSION 11.0.20-zulu
-#ENV JAVA_VERSION 14.0.2.hs-adpt
 ENV HOME /home/coder
 
 ENV SDKMAN_DIR $HOME/.sdkman
