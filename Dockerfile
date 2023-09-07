@@ -22,7 +22,7 @@ RUN cd /opt \
 ENV PATH ${PATH}:${PAYARA_HOME}/bin
 
 # VSCode extensions
-ENV VSCODE_PAYARA_VERSION 0.0.4
+ENV VSCODE_PAYARA_VERSION 1.3.0
 RUN cd /opt \
     && curl -L https://github.com/payara/ecosystem-vscode-plugin/releases/download/${VSCODE_PAYARA_VERSION}/payara-vscode-${VSCODE_PAYARA_VERSION}.vsix -o payara-vscode-${VSCODE_PAYARA_VERSION}.vsix \
     && code-server --install-extension payara-vscode-${VSCODE_PAYARA_VERSION}.vsix \
