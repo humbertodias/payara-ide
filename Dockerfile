@@ -12,12 +12,12 @@ RUN chown -R coder:coder /opt \
 USER coder
 
 # Payara Server
-ENV PAYARA_VERSION 5.2020.5
+ENV PAYARA_VERSION 6.2023.8
 ENV PAYARA_HOME /opt/payara-server
 RUN cd /opt \
     && curl -L https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/${PAYARA_VERSION}/payara-${PAYARA_VERSION}.zip -o payara-server.zip \
     && unzip payara-server.zip \
-    && ln -s /opt/payara5 ${PAYARA_HOME} \
+    && ln -s /opt/payara6 ${PAYARA_HOME} \
     && rm payara-server.zip
 ENV PATH ${PATH}:${PAYARA_HOME}/bin
 
@@ -41,9 +41,9 @@ RUN echo "alias ll='ls -lha --color'" >> $HOME/.bash_aliases \
 
 # SDKMAN 
 RUN curl -s "https://get.sdkman.io" | bash
-ENV GRADLE_VERSION 6.7
-ENV MAVEN_VERSION 3.6.3
-ENV JAVA_VERSION 8.0.265.hs-adpt
+ENV GRADLE_VERSION 8.3
+ENV MAVEN_VERSION 3.9.4
+ENV JAVA_VERSION 11.0.20-zulu
 #ENV JAVA_VERSION 14.0.2.hs-adpt
 ENV HOME /home/coder
 
