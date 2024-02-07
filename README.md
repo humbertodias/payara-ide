@@ -1,3 +1,4 @@
+[![ci-docker](https://github.com/humbertodias/payara-ide/actions/workflows/docker.yml/badge.svg)](https://github.com/humbertodias/payara-ide/actions/workflows/docker.yml)
 
 Online Visual code  IDE configured with payara tools extension, ready for development.
 
