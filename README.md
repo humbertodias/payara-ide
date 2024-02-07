@@ -13,7 +13,7 @@ For MacOS
 
 Adding local directory as a possible volume path
 
-```
+```shell
 SETTINGS=~/Library/Group\ Containers/group.com.docker/settings.json
 ADDING_PWD_DIRECTORY=".filesharingDirectories |= . + [\"$(PWD)\"]"
 jq $ADDING_PWD_DIRECTORY $SETTINGS > /tmp/modified.json
@@ -22,7 +22,7 @@ cp /tmp/modified.json $SETTINGS
 
 Then
 
-http://0.0.0.0:9090/?folder=/opt/projects/micro-sample
+http://localhost:9090/?folder=/opt/projects/micro-sample
 
 Password is *password*
 
