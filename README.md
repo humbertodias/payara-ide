@@ -7,7 +7,7 @@ Online Visual code  IDE configured with payara tools extension, ready for develo
 
 ## Run
 
-	PORT=9000 docker-compose up -d
+	PORT=9000 docker compose up -d
 
 For MacOS
 

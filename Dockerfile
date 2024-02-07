@@ -2,7 +2,7 @@ FROM codercom/code-server:latest
 
 # root 
 USER root
-RUN apt update && apt install -y zip unzip curl jq netcat lsof socat && \
+RUN apt update && apt install -y zip unzip curl jq netcat-traditional lsof socat && \
 	rm -rf /var/lib/apt/lists/* /tmp/*
 RUN chown -R coder:coder /opt \
  && sudo adduser coder sudo \
@@ -12,7 +12,7 @@ RUN chown -R coder:coder /opt \
 USER coder
 
 # Payara Server
-ENV PAYARA_VERSION 6.2023.8
+ENV PAYARA_VERSION 6.2024.1
 ENV PAYARA_HOME /opt/payara-server
 RUN cd /opt \
     && curl -L https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/${PAYARA_VERSION}/payara-${PAYARA_VERSION}.zip -o payara-server.zip \
